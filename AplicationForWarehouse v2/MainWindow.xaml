@@ -1,0 +1,90 @@
+﻿<Window x:Class="AplicationForWarehouse_v2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AplicationForWarehouse_v2"
+        mc:Ignorable="d"
+        Title="Aplication for Warehouse" Height="534" Width="1300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="42,29,0,0" TextWrapping="Wrap" Width="100" Text="Wybierz klienta: " RenderTransformOrigin="0.5,0.5" Height="21" VerticalAlignment="Top">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="0"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+        <ComboBox Name="ComboBoxMain" HorizontalAlignment="Left" Margin="162,26,0,0" VerticalAlignment="Top" Width="120" Height="24" DisplayMemberPath="NameClient"/>
+        <Button Name ="ReadyButton" Content="Gotowo" HorizontalAlignment="Left" Margin="341,26,0,0" VerticalAlignment="Top" Width="73" Click="ReadyButton_Click" Height="23"/>
+        <Button Name ="AddClientButton" Content="Dodaj kliena" HorizontalAlignment="Left" Margin="452,26,0,0" VerticalAlignment="Top" Width="102" Click="AddClientButton_Click" Height="23"/>
+        <Button Name ="DeleteClientButton" Content="Usuń klienta" HorizontalAlignment="Left" Margin="571,26,0,0" VerticalAlignment="Top" Width="81" Height="23"/>
+        <Button Name ="AddUserButton" Content="Dodaj użytkownika" HorizontalAlignment="Left" Margin="664,26,0,0" VerticalAlignment="Top" Width="110" Height="23" Click="AddNewUserButton_Click"/>
+        <Grid Visibility="Visible" Margin="0,73,0,0" HorizontalAlignment="Center" Width="1196">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="37*"/>
+                <ColumnDefinition Width="1159*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="96*"/>
+                <RowDefinition Height="85*"/>
+            </Grid.RowDefinitions>
+            <DataGrid Name="DGMain" ItemsSource="{Binding}" AutoGenerateColumns="False" Margin="10,74,10,91" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                <DataGrid.Columns>
+                    <DataGridCheckBoxColumn Header="" Binding="{Binding IsSelected}"/>
+                    <DataGridTextColumn Header="Nr" Binding="{Binding IdData}"/>
+                    <DataGridTextColumn Header="Sektor" Binding="{Binding ShipmentSektor}"/>
+                    <DataGridTextColumn Header="Status" Binding="{Binding ShipmentStatus}"/>
+                    <DataGridTextColumn Header="Rodzaj" Binding="{Binding ShipmentType}"/>
+                    <DataGridTextColumn Header="Lokalizacja" Binding="{Binding ShipmentLocation}"/>
+                    <DataGridTextColumn Header="Wymiary" Binding="{Binding ShipmentDimensions}"/>
+                    <DataGridTextColumn Header="Objętość" Binding="{Binding ShipmentVolume}"/>
+                    <DataGridTextColumn Header="Waga" Binding="{Binding ShipmentWeight}"/>
+                    <DataGridTextColumn Header="Waga palety" Binding="{Binding ShipmentWeightPallet}"/>
+                    <DataGridTextColumn Header="Waga towara" Binding="{Binding ShipmentWeightOrders}"/>
+                    <DataGridTextColumn Header="Czy GLS?" Binding="{Binding ShipmentCanGls}"/>
+                    <DataGridTextColumn Header="Data ostatniej modyfikacji" Binding="{Binding ShipmentLastUpdate}"/>
+                    <DataGridTextColumn Header="Użytkownik" Binding="{Binding Shipment_last_user}"/>
+                    <!-- Dodać komentarz-->
+                    <DataGridTemplateColumn Header="Edycja">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Edycja" Command="{Binding Edytion}" CommandParameter="{Binding}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Podgląd">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Podląd" Command="{Binding ViewDataPackage}" CommandParameter="{Binding}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Eksportuj">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Export" Command="{Binding ExportData}" CommandParameter="{Binding}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <TextBlock Name="ActualClient" HorizontalAlignment="Left" Margin="18,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="138" Height="24" Grid.ColumnSpan="2"><Run/><LineBreak/><Run/></TextBlock>
+            <Button Click="ButtonDelete_Click" Name="DeleteShipment" Grid.Column="1" Content="Usuń pozycje" HorizontalAlignment="Left" Margin="1049,32,0,0" VerticalAlignment="Top" Width="85"/>
+            <Button Name="AddShipment" Grid.Column="1" Content="Dodaj pozycje" HorizontalAlignment="Left" Margin="944,32,0,0" VerticalAlignment="Top" Width="85" Click="AddShipment_Click"/>
+            <Button Name="ChangeStatus" Grid.Column="1" Content="Zmień status" HorizontalAlignment="Left" Margin="839,32,0,0" VerticalAlignment="Top" Width="86" Click="ChangeStatus_Click"/>
+            <TextBlock x:Name="ActualClientComment" HorizontalAlignment="Left" Margin="135,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Height="57" Grid.Column="1"><Run/><LineBreak/><Run/></TextBlock>
+            <TextBlock x:Name="ActualClientStatistic" HorizontalAlignment="Left" Margin="436,6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="296" Height="57" Grid.Column="1"><Run/><LineBreak/><Run/></TextBlock>
+            <Button x:Name="ExportTabel" Grid.Column="1" Content="Eksportuj" HorizontalAlignment="Left" Margin="748,32,0,0" VerticalAlignment="Top" Width="86" Click="ExportExcelTabel"/>
+            <TextBlock x:Name="ErrorLabel" HorizontalAlignment="Left" Margin="18,157,0,0" Grid.Row="1" TextWrapping="Wrap"  VerticalAlignment="Top" Grid.ColumnSpan="2" Width="1168" Height="32"/>
+        </Grid>
+    </Grid>
+</Window>

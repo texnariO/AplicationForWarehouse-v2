@@ -1,0 +1,19 @@
+﻿<Window x:Class="AplicationForWarehouse_v2.Windows.CargoUserControl.DeleteChoosenShipment"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AplicationForWarehouse_v2.Windows.CargoUserControl"
+        mc:Ignorable="d"
+        Title="DeleteChoosenShipment" Height="450" Width="351"
+        ResizeMode="NoResize">
+    <Grid>
+        <TextBlock x:Name="mainLabel" HorizontalAlignment="Center" Margin="0,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="93" Width="331" Text="" FontSize="17"/>
+        <TextBlock x:Name="errorLabel" HorizontalAlignment="Center" Margin="0,379,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="45" Width="331" Text="" FontSize="17"/>
+        <TextBlock HorizontalAlignment="Left" Margin="45,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.109,0.547"><Run Language="ru-ru" Text="Login:"/></TextBlock>
+        <TextBox x:Name="UserLogin" AcceptsReturn="False"  HorizontalAlignment="Left" Margin="45,272,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="115" Height="22"/>
+        <TextBlock HorizontalAlignment="Left" Margin="195,251,0,0" TextWrapping="Wrap" VerticalAlignment="Top" RenderTransformOrigin="0.489,1.047"><Run Language="ru-ru" Text="Password:"/></TextBlock>
+        <TextBox x:Name="UserPassword" AcceptsReturn="False" HorizontalAlignment="Left" Margin="195,272,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="136" Height="22"/>
+        <Button Content="Usuń" HorizontalAlignment="Center" Margin="0,329,0,0" VerticalAlignment="Top" Width="145" Height="33" Click="ButtonDelete_Click"/>
+    </Grid>
+</Window>
