@@ -48,7 +48,6 @@ namespace AplicationForWarehouse_v2.Windows.CargoUserControl
                                 string.Join(",", listToDelete.Select((_, index) => $"@id{index}")) + ")";
                             using (MySqlCommand commandDelete = new MySqlCommand(query, connection))
                             {
-                                Console.WriteLine("hey");
                                 for (int i = 0; i < listToDelete.Count; i++)
                                 {
                                     commandDelete.Parameters.AddWithValue($"@id{i}", listToDelete[i].IdShipment);

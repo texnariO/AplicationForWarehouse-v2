@@ -14,7 +14,7 @@
         <TextBox x:Name="UserLogin" AcceptsReturn="False"  HorizontalAlignment="Left" Margin="32,256,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="148" Height="30"/>
         <TextBlock HorizontalAlignment="Left" Margin="262,226,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="80" Height="22"><Run Text="Password"/><Run Language="pl-pl" Text=":"/></TextBlock>
         <TextBox x:Name="UserPassword" AcceptsReturn="False"  HorizontalAlignment="Left" Margin="262,256,0,0" TextWrapping="Wrap" Text="&#xA;" VerticalAlignment="Top" Width="148" Height="30"/>
-        <Button x:Name="ButtonStartWork" Content="Dodaj" HorizontalAlignment="Left" Margin="110,327,0,0" VerticalAlignment="Top" Width="230" Height="30"/>
+        <Button x:Name="ButtonStartWork" Content="Dodaj" HorizontalAlignment="Left" Margin="110,327,0,0" VerticalAlignment="Top" Width="230" Height="30" Click="ButtonStartWork_Click"/>
         <TextBlock HorizontalAlignment="Left" Margin="32,120,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" Height="22"><Run Text="Status na kt"/><Run Text="óry zmieniacie"/><Run Language="pl-pl" Text=":"/></TextBlock>
         <ComboBox Name="StatusType" HorizontalAlignment="Left" Margin="244,119,0,0" VerticalAlignment="Top" Width="178"/>
     </Grid>

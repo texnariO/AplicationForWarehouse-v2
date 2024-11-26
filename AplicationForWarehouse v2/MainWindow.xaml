@@ -45,7 +45,7 @@
                     <DataGridTextColumn Header="Status" Binding="{Binding ShipmentStatus}"/>
                     <DataGridTextColumn Header="Rodzaj" Binding="{Binding ShipmentType}"/>
                     <DataGridTextColumn Header="Lokalizacja" Binding="{Binding ShipmentLocation}"/>
-                    <DataGridTextColumn Header="Wymiary" Binding="{Binding ShipmentDimensions}"/>
+                    <DataGridTextColumn Header="Wymiary   " Binding="{Binding ShipmentDimensions}"/>
                     <DataGridTextColumn Header="Objętość" Binding="{Binding ShipmentVolume}"/>
                     <DataGridTextColumn Header="Waga" Binding="{Binding ShipmentWeight}"/>
                     <DataGridTextColumn Header="Waga palety" Binding="{Binding ShipmentWeightPallet}"/>
@@ -57,7 +57,7 @@
                     <DataGridTemplateColumn Header="Edycja">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Edycja" Command="{Binding Edytion}" CommandParameter="{Binding}"/>
+                                <Button Content="Edycja" Click="EditRecordShipment" Tag="{Binding IdData}"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

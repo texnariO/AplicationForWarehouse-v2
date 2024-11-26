@@ -152,6 +152,9 @@
     <Compile Include="Windows\CargoUserControl\DeleteChoosenShipment.xaml.cs">
       <DependentUpon>DeleteChoosenShipment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\CargoUserControl\EditShipment.xaml.cs">
+      <DependentUpon>EditShipment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\MainButtonUserControl\AddNewClientWindow.xaml.cs">
       <DependentUpon>AddNewClientWindow.xaml</DependentUpon>
     </Compile>
@@ -179,6 +182,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\CargoUserControl\DeleteChoosenShipment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CargoUserControl\EditShipment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

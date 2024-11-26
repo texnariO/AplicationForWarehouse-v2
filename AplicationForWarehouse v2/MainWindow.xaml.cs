@@ -72,7 +72,7 @@ namespace AplicationForWarehouse_v2
                 {
                     connection.Open();
                     Console.WriteLine(idClient);
-                    string query = "SELECT * FROM shipment_db WHERE id_client LIKE @id_client AND shipment_status NOT LIKE 'Wysłana'";
+                    string query = "SELECT * FROM shipment_db WHERE id_client LIKE @id_client AND shipment_status NOT LIKE ('Wysłana' OR 'Usunięto')";
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
                         command.Parameters.AddWithValue("@id_client", "%" + idClient + "%");
@@ -272,6 +272,17 @@ namespace AplicationForWarehouse_v2
             else
             {
                 ErrorLabel.Text = "Nie można zmienić statusu, nie wybrano klienta";
+            }
+        }
+        private void EditRecordShipment(object sender, RoutedEventArgs e)
+        {
+            if(sender is Button button && button.Tag is string id)
+            {
+                int.TryParse(button.Tag.ToString(), out int idInt);
+                Console.WriteLine(shipmentList[idInt-1].ShipmentSektor);
+                EditShipment editShipment = new EditShipment(shipmentList[idInt - 1]);
+                editShipment.Closed += UpdateTable;
+                editShipment.ShowDialog();
             }
         }
     }
